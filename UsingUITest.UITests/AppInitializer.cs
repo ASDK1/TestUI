@@ -12,9 +12,16 @@ namespace UsingUITest.UITests
 		{
 			if(platform == Platform.Android)
 			{
-				return ConfigureApp
+                string Folder = "/Users/devm/Documents/Dev/TestUI/Droid/";
+                string app = "bin/Debug/aligned-com.xamarin.usinguitest.apk"; //com.xamarin.usinguitest-Signed.apk
+                string completo = System.IO.Path.Combine(Folder, app);
+
+                return ConfigureApp
 					.Android
-					.InstalledApp("com.xamarin.usinguitest")
+					.DeviceSerial("emulator-5554")
+					//.PreferIdeSettings()
+					.ApkFile(completo)
+                    //.InstalledApp("com.xamarin.usinguitest")
 					.StartApp();
 			}
 
