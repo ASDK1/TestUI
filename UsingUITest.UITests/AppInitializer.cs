@@ -18,7 +18,7 @@ namespace UsingUITest.UITests
 					.StartApp();
 			}
 
-			string iosFolder = "/Users/devm/Documents/examples/xamarin-forms-samples/UsingUITest/iOS/";
+			string iosFolder = "/Users/devm/Documents/dev/TestUI/iOS/";
 			string iosapp = "bin/iPhoneSimulator/Debug/UsingUITestiOS.app";
 			string comppletoios = System.IO.Path.Combine(iosFolder, iosapp);
             return ConfigureApp
