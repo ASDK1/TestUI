@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
-
 namespace UsingUITest.UITests
 {
 	public class AppInitializer
@@ -14,15 +13,17 @@ namespace UsingUITest.UITests
 			{
                 string Folder = "/Users/devm/Documents/Dev/TestUI/Droid/";
                 string app = "bin/Debug/aligned-com.xamarin.usinguitest.apk"; //com.xamarin.usinguitest-Signed.apk
-                string completo = System.IO.Path.Combine(Folder, app);
+                string completo = Path.Combine(Folder, app);
+
+				string signfile = Path.Combine("/Users/devm/Documents/Dev/TestUI/Data/asdk.keystore");
 
                 return ConfigureApp
 					.Android
 					.DeviceSerial("emulator-5554")
-					//.PreferIdeSettings()
 					.ApkFile(completo)
-                    //.InstalledApp("com.xamarin.usinguitest")
-					.StartApp();
+					.PreferIdeSettings()
+                    .SigningInfoFile(signfile)
+                    .StartApp();
 			}
 
 			string iosFolder = "/Users/devm/Documents/dev/TestUI/iOS/";
